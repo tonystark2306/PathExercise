@@ -43,13 +43,12 @@ class CircleVC: UIViewController {
         progressLayer.strokeColor = UIColor.systemTeal.cgColor
         progressLayer.fillColor = UIColor.clear.cgColor
         progressLayer.lineWidth = lineWidth
-        progressLayer.strokeEnd = 0
         progressLayer.lineCap = .round
         contentView.layer.addSublayer(progressLayer)
     }
     
     func setProgress(to value: CGFloat) {
-        let ratio = min(max(value / 100, 0), 1)
+        let ratio = value / 100
         progressLayer.strokeEnd = ratio
         randValue.text = "\(Int(value)) / \(100)"
     }
